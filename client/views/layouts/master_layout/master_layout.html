@@ -1,0 +1,20 @@
+<template name="MasterLayout">
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="{{pathFor 'home'}}">Home</a></li>
+        <li><a href="{{pathFor 'news.index'}}" class="{{activeRouteClass 'news'}}">News</a></li>
+        <li><a href="{{pathFor 'events.index'}}" class="{{activeRouteClass 'events'}}">Events</a></li>
+        <li><a href="{{pathFor 'about'}}" class="{{activeRouteClass 'about'}}">About Us</a></li>
+        {{#unless currentUser}}<li><a href="{{pathFor 'signIn'}}" class="signup"><i class="fa fa-user {{activeRouteClass 'signin'}}"></i> Sign in / Register</a></li>{{/unless}}
+        {{#if currentUser}}<li><a href="{{pathFor 'signOut'}}" class="signout"><i class="fa fa-sign-out"></i> Sign Out</a></li>{{/if}}
+      </ul>
+    </nav>
+  </header>
+  <article>
+    {{> yield}}
+  </article>
+  <footer>
+
+  </footer>
+</template>
